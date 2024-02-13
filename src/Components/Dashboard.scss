@@ -1,0 +1,31 @@
+.Dashboard{
+   height: 35vh;
+   width: 20vw;
+   background-color: aqua;
+   
+   .items{
+display: flex;
+justify-content: space-between;
+margin-top: 1rem;
+gap: 2rem;
+font-weight: bold;
+font-size: 1rem;
+padding-left: 15px;
+   padding-right: 15px;
+   
+   
+    img{
+        height: 20px;
+        width: 20px;
+    }
+}
+.header{
+display: flex;
+justify-content: space-between;
+padding: 15px;
+img{
+    height: 20px;
+    width: 20px;
+}
+}
+}

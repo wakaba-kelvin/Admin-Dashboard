@@ -1,0 +1,10 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; 
+    .grid-item {
+        border: 1px solid #000; /* Add a border to each grid item for better visibility */
+        padding: 20px; /* Adjust the padding as needed */
+        text-align: center; /* Center the content inside each grid item */
+    }
+}

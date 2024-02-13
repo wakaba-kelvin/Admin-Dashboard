@@ -1,0 +1,10 @@
+.sidenav{
+    width:20vw ;
+    height: 100vh;
+    background-color: blue;
+    .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
