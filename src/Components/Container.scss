@@ -1,10 +1,106 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px; 
-    .grid-item {
-        border: 1px solid #000; /* Add a border to each grid item for better visibility */
-        padding: 20px; /* Adjust the padding as needed */
-        text-align: center; /* Center the content inside each grid item */
+.body{
+  .first-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+ .card{
+  height: 18vh;
+  width: 17vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 15px;
+  .money{
+    display: flex;
+    justify-content: space-between;
+    .icon{
+      img{
+        height: 50px;
+        width: 50px;
+      }
+    
     }
+    h3{
+      padding-right: 10px;
+    }
+  }
+ }
 }
+    .second-row{
+      margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+ .card{
+  height: 18vh;
+  width: 17vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 15px;
+  .money{
+    display: flex;
+    justify-content: space-between;
+    .icon{
+      img{
+        height: 50px;
+        width: 50px;
+      }
+    
+    }
+    h3{
+      padding-right: 10px;
+    }
+  }
+ }
+
+    }
+      .third{
+        height: 30vh;
+        width: 77vw;
+        border: 2px solid white;
+        margin-top: 15px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        .Expire{
+          height: 25vh;
+          width:38vw ;
+          border: 1px solid blue;
+          .header{
+            height: 15vh;
+            width: 37vw;
+            border: 1px solid grey;
+            padding-left: 10px;
+            padding-top: 5px;
+          }
+          .cont{
+            display: flex;
+            justify-content: space-around;
+            font-weight: 500;
+          }
+        }
+       .new-client{
+        height:25vh;
+        width: 38vw;
+        border: 1px solid red;
+       }
+       .header{
+        height: 15vh;
+        width: 37vw;
+        border: 1px solid grey;
+        padding-left: 10px;
+        margin-top: 5px;
+      }
+      .cont{
+        display: flex;
+        justify-content: space-around;
+        font-weight: 500;
+      }
+      }
+  }
