@@ -19,6 +19,7 @@ const Dashboard = () => {
       icon: complainicon,
       category: 'Complaints',
       details: usericon
+      
     },
     { 
       icon: invoiceIcon,
