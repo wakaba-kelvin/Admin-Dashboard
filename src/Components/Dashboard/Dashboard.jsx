@@ -1,10 +1,10 @@
 import React from 'react';
-import clientIcon from '../assets/user-9-svgrepo-com.svg'
-import usericon from '../assets/user-alt-1-svgrepo-com (1).svg'
-import complainicon from '../assets/complaint-dissatisfaction-expression-svgrepo-com.svg'
-import invoiceIcon from '../assets/invoice-warranty-line-svgrepo-com.svg'
-import Expense from '../assets/expense-register-svgrepo-com.svg'
-import Dashboar from '../assets/dashboard-svgrepo-com.svg'
+import clientIcon from '../../assets/client-svgrepo-com.svg'
+import usericon from '../../assets/user-alt-1-svgrepo-com (1).svg'
+import complainicon from '../../assets/complaint-dissatisfaction-expression-svgrepo-com.svg'
+import invoiceIcon from '../../assets/invoice-warranty-line-svgrepo-com.svg'
+import Expense from '../../assets/expense-register-svgrepo-com.svg'
+import Dashboar from '../../assets/dashboard-svgrepo-com.svg'
 import './Dashboard.scss'
 
 const Dashboard = () => {
@@ -12,23 +12,23 @@ const Dashboard = () => {
   const itemsArray = [
     { 
       icon: clientIcon, 
-      category: 'Clients', 
+      category: 'Employee', 
       details: usericon
    },
     { 
       icon: complainicon,
-      category: 'Complaints',
+      category: 'Departments',
       details: usericon
       
     },
     { 
       icon: invoiceIcon,
-      category: 'Invoices',
+      category: 'Leave',
      details: usericon
     },
     { 
       icon: Expense,
-      category: 'Expenses',
+      category: 'Payroll',
       details: usericon 
     },
   ];

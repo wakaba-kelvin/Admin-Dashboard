@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidenav.scss'
-import Dashboard from '../Components/Dashboard'
-import Accounts from '../Components/Accounts'
+import Dashboard from '../../Components/Dashboard/Dashboard'
+
 
 
 function Sidenav() {
@@ -14,9 +14,7 @@ function Sidenav() {
         <div className="dashboard">
              <Dashboard/>
         </div>
-        <div className="accounts">
-        <Accounts/>
-        </div>
+        
         </div>
     </div>
   )

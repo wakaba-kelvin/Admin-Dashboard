@@ -1,0 +1,71 @@
+.body{
+  .first-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+ .card{
+  height: 18vh;
+  width: 17vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 15px;
+  .money{
+    display: flex;
+    justify-content: space-between;
+    .icon{
+      img{
+        height: 50px;
+        width: 50px;
+      }
+    
+    }
+    h3{
+      padding-right: 10px;
+    }
+  }
+ }
+}
+    .second-row{
+      margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 15px;
+    margin: 10px;
+    // padding: 25px;
+
+    .quote{
+      height: 8rem;
+      width: 45rem;
+      border: 2px solid black;
+      display: flex;
+    }
+    .Activity-log{
+      height: 8rem;
+      width: 20rem;
+      border: 2px solid black;
+    }
+    
+  
+  }
+ }
+
+    
+      .third{
+        height: 30vh;
+        width: 77vw;
+        border: 2px solid white;
+        margin-top: 15px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+       .graph{
+        height: 40vh;
+        width: 97%;
+        border: 2px solid black;
+       }
+      }
+  

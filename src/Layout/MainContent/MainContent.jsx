@@ -1,9 +1,9 @@
 import React from 'react'
 import {Routes, Router, Route} from 'react-router-dom'
 import './Maincontent.scss'
-import Navbar from '../Components/Navbar'
-import Container from '../Components/Container'
-import Clients from '../Pages/Clients'
+import Navbar from '../../Layout/Navbar/Navbar'
+import Container from '../../Components/Container/Container'
+import Employees from '../../Pages/Employees/Employees'
 
 function MainContent() {
   return (
@@ -11,7 +11,7 @@ function MainContent() {
         <Navbar/>
         <Routes>
           <Route path='*' element ={<Container/>}/>
-          <Route path='/Clients' element ={<Clients/>}/>
+          <Route path='/employees' element ={<Employees/>}/>
 
         </Routes>
     </div>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.scss'
 import {BrowserRouter} from 'react-router-dom'
-import Sidenav from './Layout/Sidenav'
-import MainContent from './Layout/MainContent'
+import Sidenav from './Layout/Sidenav/Sidenav'
+import MainContent from './Layout/MainContent/MainContent'
 
 function App() {
   const [count, setCount] = useState(0)
