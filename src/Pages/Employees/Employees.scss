@@ -1,0 +1,46 @@
+
+.employee{
+   margin-bottom: 15px;
+    .edit{
+        background-color: blue;
+        margin-left: 10px;
+
+    }
+    .delete{
+        background-color: red;
+        margin-left: 10px;
+    }
+    .view{
+        background-color: green;
+        margin-left: 10px;
+    }
+    .header{
+        height: 6vh;
+        border: 2px solid blue;
+        .Add-employee{
+            display: flex;
+            justify-content: end;
+            padding-right: 20px;
+            button{
+            height: 2rem;
+            width: 5rem;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            margin-top: 3px;
+            }
+        }
+    }
+}
+table{
+    padding: 10px;
+    tr{
+    border: 2px solid black;
+    }
+    th{
+        border: 2px solid black;
+    }
+    td{
+        border: 2px solid black;
+    }
+}

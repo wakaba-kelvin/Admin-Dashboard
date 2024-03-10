@@ -1,8 +1,6 @@
 import React from 'react'
-// import money from '../assets/money-pay-svgrepo-com.svg'
 import client from '../../assets/user2.svg'
 import clients from '../../assets/users-svgrepo-com.svg'
-// import complain from '../assets/atom-core-svgrepo-com.svg'
 import './Container.scss'
 
 function Container() {
