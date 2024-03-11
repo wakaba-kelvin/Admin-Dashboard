@@ -5,6 +5,7 @@ import Navbar from '../../Layout/Navbar/Navbar'
 import Container from '../../Components/Container/Container'
 import Employees from '../../Pages/Employees/Employees'
 import Login from '../../Pages/login/Login'
+import AddEmployee from '../../Pages/Employees/AddEmployee'
 
 
 function MainContent() {
@@ -15,6 +16,7 @@ function MainContent() {
           <Route path='*' element ={<Container/>}/>
           <Route path='/employees' element ={<Employees/>}/>
           <Route path='/login' element = {<Login/>}/>
+          <Route path='/addEmployee' element={<AddEmployee/>}/>
         </Routes>
     </div>
     

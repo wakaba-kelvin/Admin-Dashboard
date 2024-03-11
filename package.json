@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "admin-dashboard": "link:",
+    "antd": "^5.15.2",
     "chart.js": "^4.4.2",
     "icons": "^1.0.0",
     "prime": "^0.5.0",

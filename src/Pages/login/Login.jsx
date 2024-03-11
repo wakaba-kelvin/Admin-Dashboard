@@ -52,26 +52,30 @@ const LoginForm = () => {
       </div>
       <div className="form">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+        <div className="username">
+        <label htmlFor="username"></label>
         <input
           type="text"
+          placeholder='username'
           id="username"
           name="username"
           value={formData.username}
           onChange={handleInputChange}
           required
         />
-
-        <label htmlFor="password">Password:</label>
+</div>
+<div className="password">
+        <label htmlFor="password"></label>
         <input
           type="password"
+          placeholder='password'
           id="password"
           name="password"
           value={formData.password}
           onChange={handleInputChange}
           required
         />
-
+</div>
         <button type="submit">Login</button>
       </form>
       </div> 
