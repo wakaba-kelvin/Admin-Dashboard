@@ -1,9 +1,21 @@
-import React from 'react'
-import client from '../../assets/user2.svg'
-import clients from '../../assets/users-svgrepo-com.svg'
-import './Container.scss'
+import { useState } from 'react';
+import client from '../../assets/user2.svg';
+import clients from '../../assets/users-svgrepo-com.svg';
+import './Container.scss';
+import Graph from '../Graph/Graph';
+import { UserData } from '../../Components/Data/Data';
 
 function Container() {
+  const [userData, setUserData] = useState({
+    labels: UserData.map((data) => data.month),
+    datasets: [{
+      label: "Users Gained",
+      data: UserData.map((data) => data.userGain),
+    }]
+  });
+
+
+
   return (
         <div className="body">
           <div className="first-row">
@@ -74,7 +86,7 @@ function Container() {
   </div>
       <div className="third">
       <div className="graph">
-        <h1>GRAPH</h1>
+        <Graph chartData={userData}/>
       </div>
       </div>
     </div>
