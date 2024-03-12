@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './Attendance.scss'; // Adjust the path based on your project structure
+import './Attendance.scss'; 
 
-// Sample Employee component for the filtered list
 const Employee = ({ id, name, schedule, date, timeIn, timeOut }) => (
   <tr>
     <td>{id}</td>
@@ -25,25 +24,19 @@ const Attendance = () => {
   const [selectedDate, setSelectedDate] = useState('');
 
   const handleFilterEmployees = () => {
-    // Assuming you have a function to fetch employees based on department and date
-    // Replace this logic with your actual data fetching
     const employees = fetchEmployees(selectedDepartment, selectedDate);
     setFilteredEmployees(employees);
   };
 
   const fetchEmployees = (departmentId, date) => {
-    // Simulating data fetching
-    // Replace this with your actual data fetching logic
     return [
       { id: 1, name: 'John Doe', schedule: '9 AM - 5 PM', date: '2024-03-15', timeIn: '9 AM', timeOut: '5 PM' },
       { id: 2, name: 'Jane Smith', schedule: '9 AM - 5 PM', date: '2024-03-15', timeIn: '9 AM', timeOut: '5 PM' },
-      // ... add more employee data
     ];
   };
 
   return (
     <div>
-      {/* Dropdown for selecting department */}
       <label htmlFor="departmentDropdown">Select Department:</label>
       <select
         id="departmentDropdown"
@@ -57,7 +50,6 @@ const Attendance = () => {
         ))}
       </select>
 
-      {/* HTML5 date input for selecting a date */}
       <label htmlFor="datePicker">Select Date:</label>
       <input
         type="date"
@@ -66,10 +58,8 @@ const Attendance = () => {
         onChange={(e) => setSelectedDate(e.target.value)}
       />
 
-      {/* Button to filter employees based on department and date */}
       <button onClick={handleFilterEmployees}>Get Employees List</button>
 
-      {/* Table for displaying filtered employees */}
       <table>
         <thead>
           <tr>

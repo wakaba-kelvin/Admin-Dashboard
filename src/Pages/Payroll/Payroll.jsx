@@ -1,81 +1,78 @@
 import React, { useState } from 'react';
-import './Payroll.scss'; 
+import './Payroll.scss';
 
 const Payroll = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState('');
-  const [employeeNames, setEmployeeNames] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
-  const handleDepartmentChange = (event) => {
-    // Set the selected department when dropdown changes
-    setSelectedDepartment(event.target.value);
-  };
+  const employees = [
+    {
+      name: 'John Doe',
+      payPerHour: 15,
+      totalHoursWorked: 40,
+      overtimePerHour: 5,
+      grossPay: 700,
+      incomeTax: 50,
+      otherDeductions: 20,
+    },
+  ];
 
-  const handleFilterEmployees = () => {
-    // Implement logic to filter employees based on the selected department
-    // Replace this with your actual data fetching
-    // For now, just simulate fetching employee names
-    setEmployeeNames(['Employee 1', 'Employee 2', 'Employee 3']);
-  };
-
-  const handleCalendarChange = (event) => {
-    // Set the selected date when the calendar changes
-    setSelectedDate(event.target.value);
-  };
-
-  const handleNext = () => {
-    // Implement logic to move to the next step
-    console.log('Moving to the next step');
+  const downloadSlip = () => {
+    if (selectedEmployee) {
+      console.log(`Downloading slip for ${selectedEmployee.name}`);
+    } else {
+      console.log('No employee selected.');
+    }
   };
 
   return (
-    <form>
-      <h2>Select Department and Employees</h2>
+    <div>
+      <h2>Employee Payroll Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Employee Name</th>
+            <th>Pay/Hour</th>
+            <th>Total Hours Worked</th>
+            <th>Overtime/Hour</th>
+            <th>Gross Pay</th>
+            <th>Income Tax</th>
+            <th>Other Deductions</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{employee.name}</td>
+              <td>{employee.payPerHour}</td>
+              <td>{employee.totalHoursWorked}</td>
+              <td>{employee.overtimePerHour}</td>
+              <td>{employee.grossPay}</td>
+              <td>{employee.incomeTax}</td>
+              <td>{employee.otherDeductions}</td>
+              <td>
+                <button onClick={() => setSelectedEmployee(employee)}>
+                  Download
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-      {/* Department Dropdown */}
-      <div className="form-group">
-        <label htmlFor="departmentDropdown">Select Department:</label>
-        <select
-          id="departmentDropdown"
-          value={selectedDepartment}
-          onChange={handleDepartmentChange}
-        >
-          <option value="">Select Department</option>
-          <option value="HR">Human Resources</option>
-          <option value="IT">Information Technology</option>
-          {/* Add more department options as needed */}
-        </select>
+      <div>
+        {selectedEmployee && (
+          <div>
+            <h3>Selected Employee: {selectedEmployee.name}</h3>
+          </div>
+        )}
       </div>
 
-      {/* Button to filter employee names */}
-      <button onClick={handleFilterEmployees}>Filter Employees</button>
-
-      {/* Employee Names Display */}
-      {employeeNames.length > 0 && (
-        <div>
-          <h3>Employee Names:</h3>
-          <ul>
-            {employeeNames.map((name) => (
-              <li key={name}>{name}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Calendar */}
-      <div className="form-group">
-        <label htmlFor="calendar">Select Date:</label>
-        <input
-          type="date"
-          id="calendar"
-          value={selectedDate}
-          onChange={handleCalendarChange}
-        />
+      <div>
       </div>
-
-      {/* Next Button */}
-      <button onClick={handleNext}>Next</button>
-    </form>
+    </div>
   );
 };
 
