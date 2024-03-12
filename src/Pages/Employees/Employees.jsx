@@ -13,12 +13,10 @@ const Employees = () => {
   ];
 
   const handleEdit = (id) => {
-    // Implement edit functionality
     console.log(`Edit employee with ID ${id}`);
   };
 
   const handleDelete = (id) => {
-    // Implement delete functionality
     console.log(`Delete employee with ID ${id}`);
   };
 

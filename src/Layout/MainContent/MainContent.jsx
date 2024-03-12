@@ -18,8 +18,9 @@ function MainContent() {
         <Navbar/>
         <Routes>
           <Route path='*' element ={<Container/>}/>
+          
           <Route path='/employees' element ={<Employees/>}/>
-          <Route path='/login' element = {<Login/>}/>
+          {/* <Route path='/login' element = {<Login/>}/> */}
           <Route path='/addEmployee' element={<AddEmployee/>}/>
           <Route path='/departments' element={<Departments/>}/>
           <Route path='/attendance' element={<Attendance/>}/>

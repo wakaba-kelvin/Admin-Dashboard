@@ -37,6 +37,7 @@ const Attendance = () => {
 
   return (
     <div>
+      <div className="attendance">
       <label htmlFor="departmentDropdown">Select Department:</label>
       <select
         id="departmentDropdown"
@@ -77,6 +78,7 @@ const Attendance = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
