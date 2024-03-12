@@ -6,6 +6,10 @@ import Container from '../../Components/Container/Container'
 import Employees from '../../Pages/Employees/Employees'
 import Login from '../../Pages/login/Login'
 import AddEmployee from '../../Pages/Employees/AddEmployee'
+import Departments from '../../Pages/Departments/Departments'
+import Attendance from '../../Pages/Departments/Attendance'
+import Payroll from '../../Pages/Payroll/Payroll'
+
 
 
 function MainContent() {
@@ -17,6 +21,9 @@ function MainContent() {
           <Route path='/employees' element ={<Employees/>}/>
           <Route path='/login' element = {<Login/>}/>
           <Route path='/addEmployee' element={<AddEmployee/>}/>
+          <Route path='/departments' element={<Departments/>}/>
+          <Route path='/attendance' element={<Attendance/>}/>
+          <Route path='/payroll' element={<Payroll/>}/>
         </Routes>
     </div>
     
