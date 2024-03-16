@@ -1,89 +1,87 @@
-import React, { useState } from 'react';
-import './Login.scss'
-
-const LoginForm = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
+import { MdLockPerson, MdOutlineMarkunread } from "react-icons/md";
+import { FaCheckDouble } from "react-icons/fa6";
+import { PuffLoader } from 'react-spinners';
+import './Login.scss';
+ 
+const Login = () => {
+  const navigate = useNavigate();
+ 
+  const schema = yup.object().shape({
+    email: yup.string().email('Invalid email').required('Email is required'),
+    password: yup.string().required('Password is required'),
   });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Your validation logic goes here
-    // For simplicity, let's just check if both fields are filled
-    if (formData.username === '' || formData.password === '') {
-      alert('Please enter both username and password');
-      return;
+ 
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
+ 
+  const onSubmit = async (data) => {
+    try {
+      // Call authentication function here
+      // Example:
+      // const response = await authenticateUser(data.email, data.password);
+      // if (response.success) {
+      //   navigate('/dashboard');
+      // } else {
+      //   // Handle authentication error
+      // }
+      navigate('*')
+    } catch (error) {
+      console.log(error);
     }
-
-    // If all validation passes, you can proceed with the login logic here
-    // For now, let's just log the values to the console
-    console.log('Username:', formData.username);
-    console.log('Password:', formData.password);
-
-    // You can add your login logic here, such as making an API request
-
-    // Optionally, you can reset the form after submission
-    setFormData({
-      username: '',
-      password: '',
-    });
   };
-
+ 
   return (
-    <div className='admin-dashboard'>
-        <div className="login">
-            <div className="image">
-                <h2>Premiernets</h2>
+    <div className="login-container">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-wrap">
+          <div className="form-lholder">
+            <div className="inputs-holder">
+              <div className='input-holder'>
+                <input
+                  placeholder="Email..."
+                  {...register('email')}
+                />
+                <div className="react">
+                  <MdOutlineMarkunread size="34px" color="rgba(9, 5, 132, 0.743)" />
+                </div>
+              </div>
+              <p>{errors.email?.message}</p>
+              <div className='input-holder'>
+                <input
+                  type="password"
+                  placeholder="Password.."
+                  {...register('password')}
+                />
+                <div className="react">
+                  <MdLockPerson size="34px" color="rgba(9, 5, 132, 0.743)" />
+                </div>
+              </div>
+              <p>{errors.password?.message}</p>
             </div>
-            <div className="content">
-                <div className="header">
-                <h2>Admin</h2>
-                <h2>Portal</h2>
-      </div>
-      <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="username">
-        <label htmlFor="username"></label>
-        <input
-          type="text"
-          placeholder='username'
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-          required
-        />
-</div>
-<div className="password">
-        <label htmlFor="password"></label>
-        <input
-          type="password"
-          placeholder='password'
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />
-</div>
-        <button type="submit">Login</button>
+            <div className='btn'>
+              <button type="submit">
+                Login
+              </button>
+            </div>
+            <div>
+              <h4>Good to see you again</h4>
+            </div>
+            <div className="double">
+              <div>
+                <FaCheckDouble size="80px" color="rgba(9, 5, 132, 0.743)" />
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
-      </div> 
-      </div>
     </div>
-    </div>
-
   );
 };
-
-export default LoginForm;
+ 
+export default Login;

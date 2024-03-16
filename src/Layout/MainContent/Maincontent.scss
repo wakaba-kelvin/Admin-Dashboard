@@ -6,5 +6,16 @@
 .maincontent{
     width: 80vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // margin-top: 4.3rem;
+    // flex-direction: column;
+    // background-color: aqua;
+    // justify-content: space-between;
+    // border: 2px solid tomato;
+
+    // margin-left: 831px;
+    // margin-bottom: 150px;
+    // margin: auto;
     // background-color: orange;
 }
