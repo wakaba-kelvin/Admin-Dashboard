@@ -26,7 +26,7 @@ export const employeeApi = createApi({
             query: () => '',
             providesTags: ['employee'],
         }), 
-        fireEmployee: builder.mutation({
+        deleteEmployee: builder.mutation({
             query: (employeeId) => ({
                 url: `/${employeeId}`,
                 method: 'DELETE',
@@ -36,4 +36,4 @@ export const employeeApi = createApi({
     }),
 });
 
-export const { useAddEmployeeMutation, useLoginMutation, useGetAllEmployeesQuery, useFireEmployeeMutation } = employeeApi;
+export const { useAddEmployeeMutation, useLoginMutation, useGetAllEmployeesQuery, useDeleteEmployeeMutation } = employeeApi;
