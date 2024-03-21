@@ -7,7 +7,7 @@ import Dashboard from '../../Components/Dashboard/Dashboard'
 function Sidenav() {
   return (
     <div className="sidenav">
-        <div className="navbar">
+        <div className="navbar1">
             <h2>Premiernets</h2>
         </div>
         <div className="menu">

@@ -10,14 +10,8 @@ import LoginForm from '../../Pages/login/Login'
 function Hero() {
   return (
     <div className="hero">
-      {/* <div className="memo"> */}
        <Sidenav/>
-       {/* <Navbar/> */}
        <MainContent/>
-       {/* </div> */}
-    
-   
-    
     </div>
   )
 }

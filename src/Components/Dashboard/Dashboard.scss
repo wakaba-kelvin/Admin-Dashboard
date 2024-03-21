@@ -3,10 +3,11 @@
     width: 20vw;
     gap: 2rem;
     // border-right: 2px solid black;
-    color: rgb(22, 21, 21);
-    background: linear-gradient(to top right, teal,rgb(185, 58, 185));
+    // color: rgb(22, 21, 21);
+    // background: linear-gradient(to top right, teal,rgb(185, 58, 185));
     box-shadow: 0,0,0,0.9;
-    
+    background-color: #088178;
+    position: fixed;
   
     .items {
       display: flex;

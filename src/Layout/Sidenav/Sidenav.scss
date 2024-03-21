@@ -1,9 +1,18 @@
 .sidenav{
     width:20vw ;
     height: 100vh;
+    // margin-top: 5rem;
     // background-color: blue;
     // border: 2px solid;
     // border: 3px solid sienna;
+    .navbar1{
+        height: 10vh;
+        background-color: #088178; 
+
+    h2{
+        color: white;
+    }
+    }
     .menu{
         display: flex;
         flex-direction: column;

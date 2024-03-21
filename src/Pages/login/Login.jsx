@@ -1,25 +1,23 @@
 import React from 'react';
+import login from "../../assets/login.jpeg";
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
-import { MdLockPerson, MdOutlineMarkunread } from "react-icons/md";
-import { FaCheckDouble } from "react-icons/fa6";
-import { PuffLoader } from 'react-spinners';
 import './Login.scss';
- 
+
 const Login = () => {
   const navigate = useNavigate();
- 
+
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
     password: yup.string().required('Password is required'),
   });
- 
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
- 
+
   const onSubmit = async (data) => {
     try {
       // Call authentication function here
@@ -30,58 +28,49 @@ const Login = () => {
       // } else {
       //   // Handle authentication error
       // }
-      navigate('*')
+      navigate('*');
     } catch (error) {
       console.log(error);
     }
   };
- 
+
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-wrap">
-          <div className="form-lholder">
-            <div className="inputs-holder">
-              <div className='input-holder'>
-                <input
-                  placeholder="Email..."
-                  {...register('email')}
-                />
-                <div className="react">
-                  <MdOutlineMarkunread size="34px" color="rgba(9, 5, 132, 0.743)" />
-                </div>
-              </div>
-              <p>{errors.email?.message}</p>
-              <div className='input-holder'>
-                <input
-                  type="password"
-                  placeholder="Password.."
-                  {...register('password')}
-                />
-                <div className="react">
-                  <MdLockPerson size="34px" color="rgba(9, 5, 132, 0.743)" />
-                </div>
-              </div>
-              <p>{errors.password?.message}</p>
-            </div>
-            <div className='btn'>
-              <button type="submit">
-                Login
-              </button>
-            </div>
-            <div>
-              <h4>Good to see you again</h4>
-            </div>
-            <div className="double">
-              <div>
-                <FaCheckDouble size="80px" color="rgba(9, 5, 132, 0.743)" />
-              </div>
-            </div>
-          </div>
+    <body>
+      <div className="login-container">
+        <div className="login-image">
+          <img src={login} alt="" style={{ width: "100%", height: "100%" }} />
         </div>
-      </form>
-    </div>
+        <div className="login-form-container">
+          <h2>Login to your account</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label htmlFor="email">Email:</label><br />
+            <input
+              className="login-email"
+              type="email"
+              id="email"
+              name="email"
+              {...register('email')}
+              required
+            />
+            {errors.email && <div className="login-error-message">{errors.email.message}</div>}
+            <label htmlFor="password">Password:</label><br />
+            <input
+              className="login-password"
+              type="password"
+              id="password"
+              name="password"
+              {...register('password')}
+              required
+            /><br />
+            {errors.password && <div className="login-error-message">{errors.password.message}</div>}
+            <button className="login-submit-btn" type="submit">Login</button><br />
+            <a style={{ margin: "20px", cursor: "pointer" }}>Forgot password?</a>
+            <a href="/registration" style={{ marginLeft: "20px", cursor: "pointer" }}>Admin login</a>
+          </form>
+        </div>
+      </div>
+    </body>
   );
 };
- 
+
 export default Login;

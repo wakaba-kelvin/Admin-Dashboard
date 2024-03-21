@@ -1,14 +1,17 @@
 .navbar {
     height: 10vh;
-    width: 78vw;
-    background-color: azure;
-    background-color: #6A58A1;
-    // border: 3px solid rgb(225, 21, 96);
+    width: 100vw;
+    // background-color: azure;
+    background-color: #088178; 
+    position: fixed;
+    margin: auto;
+       // border: 3px solid rgb(225, 21, 96);
   
     .routed {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
+      color: black;
     }
   }

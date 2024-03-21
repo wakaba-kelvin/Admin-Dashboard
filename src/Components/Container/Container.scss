@@ -1,25 +1,20 @@
-@keyframes MyAnimation {
-  from {
-    left: -400;
-  }
-  to {
-    right: 200px;
-  }
-}
 
 .body {
   // background-color: #eed0e2;
   height: 100%;
   width: 80vw;
+  overflow: scroll;
+  margin-top: 5rem;
 
 
   .first-row {
-    animation-name: MyAnimation;
-    animation-duration: 1s;
+    // animation-name: MyAnimation;
+    // animation-duration: 1s;
     // animation-delay: 1s;
     width: 99%;
     height: 18vh;
-    position: relative;
+    margin-top: 3rem;
+    // position: relative;
 
     display: flex;
     justify-content: space-evenly;
@@ -30,16 +25,18 @@
 
       display: flex;
 
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+      // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
       flex-direction: column;
       justify-content: space-around;
       padding: 10px;
       border-radius: 15px;
-      background: linear-gradient(teal, rgb(185, 58, 185));
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+
+      // background: linear-gradient(teal, rgb(185, 58, 185));
       h3 {
-        color: black;
+        color: rgba(0, 0, 0, 0.653);
       }
-      color: #ffff;
+      color: #18171797;
       .money {
         display: flex;
         justify-content: space-between;
@@ -71,7 +68,7 @@
       display: flex;
       border-radius: 15px;
       padding: 20px;
-      background-color: #9448ae;
+      // background-color: #9448ae;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
     }
     .Activity-log {
@@ -79,7 +76,7 @@
       width: 20rem;
       border-radius: 10px;
       padding: 10px;
-      background-color: #356c90;
+      // background-color: #356c90;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
     }
   }
@@ -88,14 +85,18 @@
 .third {
   height: 30vh;
   width: 77vw;
-  border: 2px solid white;
+  // border: 2px solid white;
   margin-top: 15px;
   margin: auto;
   display: flex;
   justify-content: space-between;
+  // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+
   .graph {
     height: 40vh;
     width: 97%;
-    border: 2px solid black;
+    // border: 2px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+
   }
 }
