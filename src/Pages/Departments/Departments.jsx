@@ -46,7 +46,7 @@ const Departments = () => {
   };
 
   return (
-    <div>
+    <div className='attendance'>
       <table>
         <thead>
           <tr>

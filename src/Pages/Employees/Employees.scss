@@ -1,6 +1,13 @@
+.view{
+    margin-bottom: 6rem;
+    .me{
+        height: 5vh;
+        width: 100%;
+        margin-bottom: 6rem;
+        background-color: green;
+    }
+.employed{
 
-.employee{
-   margin-bottom: 15px;
     .edit{
         background-color: blue;
         margin-left: 10px;
@@ -44,4 +51,5 @@ table{
         border: 2px solid black;
     }
     
+}
 }

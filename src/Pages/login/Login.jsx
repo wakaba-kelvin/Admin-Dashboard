@@ -4,10 +4,12 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
+import { useLoginMutation } from '../../Feature/Employee/Employee';
 import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [loginMutation] = useLoginMutation(); // Change here
 
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -20,15 +22,9 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      // Call authentication function here
-      // Example:
-      // const response = await authenticateUser(data.email, data.password);
-      // if (response.success) {
-      //   navigate('/dashboard');
-      // } else {
-      //   // Handle authentication error
-      // }
-      navigate('*');
+      const { data: { user, token } } = await loginMutation.mutateAsync(data); // Change here
+      localStorage.setItem('token', token); 
+      navigate('/dashboard'); 
     } catch (error) {
       console.log(error);
     }

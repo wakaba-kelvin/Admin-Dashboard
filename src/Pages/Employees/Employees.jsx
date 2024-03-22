@@ -17,7 +17,9 @@ function Employees() {
   };
 
   return (
-    <div className="employee">
+    <div className="view">
+      <div className="me"></div>
+    <div className="employed">
       <h2>Employee Table</h2>
       <table>
         <thead>
@@ -56,6 +58,7 @@ function Employees() {
       {deletedEmployeeId && (
         <div className="toast">Employee with ID {deletedEmployeeId} deleted successfully.</div>
       )}
+    </div>
     </div>
   );
 }

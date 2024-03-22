@@ -25,7 +25,7 @@ const Payroll = () => {
   };
 
   return (
-    <div>
+    <div className='payroll'>
       <h2>Employee Payroll Table</h2>
       <table>
         <thead>
