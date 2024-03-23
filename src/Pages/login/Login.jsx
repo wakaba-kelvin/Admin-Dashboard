@@ -1,88 +1,87 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import './Login.scss'; 
 import login from "../../assets/login.jpeg";
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios"; 
-import './Login.scss';
+import { useLoginMutation } from '../../Feature/Employee/Employee'; // Update the path
 
-const Login = () => {
+function LoginForm() {
   const navigate = useNavigate();
+  const [loginMutation, { isLoading, isError }] = useLoginMutation(); // Use login mutation hook
 
-  const schema = yup.object().shape({
-    email: yup.string().email('Invalid email').required('Email is required'),
-    Password: yup.string().required('Password is required'),
-  });
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Email is required'),
+      password: Yup.string().required('Password is required')
+    }),
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const response = await loginMutation(values); // Call login mutation
+        const { data, error } = response;
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema)
-  });
-
-  const onSubmit = async (data) => {
-    try {
-      // Send login request using Axios
-      // console.log("data", data)
-      const response = await axios.post('http://localhost:3000/api/employee/login', data);
-      console.log(response);
-      // Check if login was successful
-      if (response.data.success) {
-        // Store token and user data in local storage
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        console.log("data", data)
-        // Redirect user to dashboard or appropriate route
-        navigate('*');
-      } else {
-        console.log('error')
-        // Handle unsuccessful login
-        console.log("Login failed: ", response.data.message);
-        // Display appropriate error message to the user
+        if (data) {
+          const { token, user } = data;
+          localStorage.setItem('token', token); // Store token in local storage
+          localStorage.setItem('user', JSON.stringify(user)); // Store user information in local storage
+          resetForm(); // Reset form fields
+          navigate('/dashboard'); // Navigate to dashboard
+        } else if (error) {
+          console.error('Login failed:', error);
+          // Handle error (e.g., display error message)
+        }
+      } catch (error) {
+        console.error('Login failed:', error);
+        // Handle error (e.g., display error message)
       }
-    } catch (error) {
-      // console.log('in error')
-      console.error("An error occurred during login:", error);
-      // Handle any other errors that may occur during the login process
     }
-  };
+  });
 
   return (
-    <body>
-      <div className="login-container">
-        <div className="login-image">
-          <img src={login} alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div className="login-form-container">
-          <h2>Login to your account</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="Email">Email:</label><br />
-            <input
-              className="login-email"
-              type="Email"
-              id="Email"
-              name="Email"
-              {...register('Email')}
-              required
-            />
-            {errors.email && <div className="login-error-message">{errors.email.message}</div>}
-            <label htmlFor="Password">Password:</label><br />
-            <input
-              className="login-Password"
-              type="Password"
-              id="Password"
-              name="Password"
-              {...register('Password')}
-              required
-            /><br />
-            {errors.Password && <div className="login-error-message">{errors.Password.message}</div>}
-            <button className="login-submit-btn" type="submit">Login</button><br />
-            <a style={{ margin: "20px", cursor: "pointer" }}>Forgot Password?</a>
-            <a href="/registration" style={{ marginLeft: "20px", cursor: "pointer" }}>Admin login</a>
-          </form>
-        </div>
+    <div className="login-container">
+      <div className="login-image">
+        <img src={login} alt="" />
       </div>
-    </body>
+      <div className="login-form-container">
+        <h2>Login to your account</h2>
+        <form onSubmit={formik.handleSubmit}>
+          <label htmlFor="email">Email:</label><br />
+          <input
+            className="Email"
+            type="Email"
+            id="Email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div className="login-error-message">{formik.errors.email}</div>
+          ) : null}
+          <label htmlFor="password">Password:</label><br />
+          <input
+            className="password"
+            type="password"
+            id="password"
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          /><br />
+          {formik.touched.password && formik.errors.password ? (
+            <div className="login-error-message">{formik.errors.password}</div>
+          ) : null}
+          <button className="login-btn" type="submit">Login</button><br />
+          <a className="login-forgot-password">Forgot password</a>
+          <a href="/registration" className="login-create-account">Create Account</a>
+        </form>
+      </div>
+    </div>
   );
-};
+}
 
-export default Login;
+export default LoginForm;
