@@ -12,13 +12,13 @@ export const employeeApi = createApi({
                 method: 'POST',
                 body: employee
             }),
-            invalidatesTags: ['employee'],
+            invalidatesTags: ['employee'], 
         }),
         login: builder.mutation({
-            query: ({ Email, Password }) => ({
+            query: ({ email, password }) => ({
                 url: 'login',
                 method: 'POST',
-                body: { Email: Email, Password: Password }
+                body: { Email: email, Password: password }
             }),
             invalidatesTags: ['employee'],
         }),
