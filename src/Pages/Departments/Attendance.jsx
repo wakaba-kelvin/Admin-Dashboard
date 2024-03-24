@@ -33,6 +33,7 @@ function Employees() {
   const handleUpdate = async () => {
     try {
       await updateEmployeeMutation({ id: employeeIdToUpdate, updatedFields });
+
       console.log(`Successfully updated employee with ID: ${employeeIdToUpdate}`);
       refetch();
       setIsModalOpen(false); // Close the modal after updating
@@ -55,9 +56,8 @@ function Employees() {
   };
 
   return (
-    <div className="view">
-      <div className="me"></div>
-      <div className="employed">
+    <div className="yooh">
+      <div className="attendance">
         <h2>Employee Table</h2>
         <table>
           <thead>
@@ -67,7 +67,6 @@ function Employees() {
               <th>Position</th>
               <th>CheckInTime</th>
               <th>CheckOutTime</th>
-              {/* <th>Department</th> */}
               <th>Action</th>
             </tr>
           </thead>
@@ -79,7 +78,6 @@ function Employees() {
                 <td>{employee.Position}</td>
                 <td>{employee.CheckInTime}</td>
                 <td>{employee.CheckOutTime}</td>
-                {/* <td>{employee.Department}</td> */}
                 <td>
                   <button className="edit-button" onClick={() => openModal(employee.EmployeeID)}>Edit</button>
                   <button className="delete-button" onClick={() => handleDelete(employee.EmployeeID)}>Delete</button>
@@ -91,25 +89,23 @@ function Employees() {
         {deletedEmployeeId && (
           <div className="toast">Employee with ID {deletedEmployeeId} deleted successfully.</div>
         )}
-      </div >
+      </div>
       {isModalOpen && (
-         <div className="modal-overlay" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-         <div className="modal" style={{ width: '400px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
-           <span className="close" onClick={() => setIsModalOpen(false)} style={{ position: 'absolute', top: '10px', right: '10px', cursor: 'pointer', fontSize: '20px', color: '#555' }}>&times;</span>
-           <h2 style={{ marginBottom: '20px' }}>Update Employee Information</h2>
-           <div style={{ marginBottom: '20px' }}>
-             <label htmlFor="checkIn">Check-in:</label>
-             <input type="text" id="checkIn" name="checkIn" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
-             <label htmlFor="checkOut">Check-out:</label>
-             <input type="text" id="checkOut" name="checkOut" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
-             <label htmlFor="position">Position:</label>
-             <input type="text" id="position" name="position" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
-             <label htmlFor="department">Department:</label>
-             <input type="text" id="department" name="department" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
-           </div>
-           <button onClick={handleUpdate} style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Update</button>
-         </div>
-       </div>
+        <div className="modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="modal" style={{ width: '400px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
+            <span className="close" onClick={() => setIsModalOpen(false)} style={{ position: 'absolute', top: '10px', right: '10px', cursor: 'pointer', fontSize: '20px', color: '#555' }}>&times;</span>
+            <h2 style={{ marginBottom: '20px' }}>Update Employee Information</h2>
+            <div style={{ marginBottom: '20px' }}>
+              <label htmlFor="checkIn">Check-in:</label>
+              <input type="text" id="checkInTime" name="CheckInTime" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
+              <label htmlFor="CheckOut">Check-out:</label>
+              <input type="text" id="CheckOutTime" name="CheckOutTime" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
+              <label htmlFor="position">Position:</label>
+              <input type="text" id="Position" name="Position" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
+            </div>
+            <button onClick={handleUpdate} style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Update</button>
+          </div>
+        </div>
       )}
     </div>
   );

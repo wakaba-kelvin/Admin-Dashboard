@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useGetAllEmployeesQuery, useDeleteEmployeeMutation } from '../../Feature/Employee/Employee';
+import "./Employees.scss"
 
 function Employees() {
   const { data: employeesData, error, isLoading, refetch } = useGetAllEmployeesQuery();
@@ -17,9 +18,8 @@ function Employees() {
   };
 
   return (
-    <div className="view">
-      <div className="me"></div>
-    <div className="employed">
+    
+    <div className="employeee">
       <h2>Employee Table</h2>
       <table>
         <thead>
@@ -58,7 +58,6 @@ function Employees() {
       {deletedEmployeeId && (
         <div className="toast">Employee with ID {deletedEmployeeId} deleted successfully.</div>
       )}
-    </div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ function Container() {
 
 
   return (
-        <div className="body">
+        <div className="cont">
           <div className="first-row">
   <div className="card">
 <div className="header">

@@ -15,10 +15,10 @@ function AddEmployee() {
     Password: '',
     PhotoURL: 'https://example.com/photo.jpg',
     Schedule: '9AM-5PM',
-    HourlyRate: '', // New field
-    GrossPay: '', // New field
-    NHIF: '', // New field
-    NSSF: '', // New field
+    HourlyRate: '', 
+    GrossPay: '', 
+    NHIF: '',
+    NSSF: '', 
   });
 
   const [addEmployeeMutation, { isLoading }] = useAddEmployeeMutation();

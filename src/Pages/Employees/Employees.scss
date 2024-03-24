@@ -1,13 +1,8 @@
-.view{
-    margin-bottom: 6rem;
-    .me{
-        height: 5vh;
-        width: 100%;
-        margin-bottom: 6rem;
-        background-color: green;
-    }
-.employed{
 
+.employeee{
+// background-color: lightskyblue;
+margin: 20px;
+margin-top: 6rem;
     .edit{
         background-color: blue;
         margin-left: 10px;
@@ -42,14 +37,13 @@
 table{
     padding: 10px;
     tr{
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.486);
     }
     th{
-        border: 2px solid black;
+        border: 2px solid rgba(0, 0, 0, 0.42);
     }
     td{
-        border: 2px solid black;
+        border: 2px solid rgba(0, 0, 0, 0.45);
     }
     
-}
 }
