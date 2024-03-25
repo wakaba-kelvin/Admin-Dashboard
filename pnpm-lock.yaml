@@ -29,6 +29,9 @@ dependencies:
   cloudinary:
     specifier: ^2.0.1
     version: 2.0.3
+  file-saver:
+    specifier: ^2.0.5
+    version: 2.0.5
   form:
     specifier: ^0.2.4
     version: 0.2.4
@@ -1990,6 +1993,10 @@ packages:
     dependencies:
       flat-cache: 3.2.0
     dev: true
+
+  /file-saver@2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
 
   /file-selector@0.6.0:
     resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}

@@ -8,14 +8,13 @@ function Employees() {
   const [updateEmployeeMutation] = useUpdateEmployeeMutation();
   const [deletedEmployeeId, setDeletedEmployeeId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); 
-  const [displayedEmployees, setDisplayedEmployees] = useState([]); // State to store displayed employees
-  const [employeeIdToUpdate, setEmployeeIdToUpdate] = useState(null); // State to store the ID of the employee to update
-  const [updatedFields, setUpdatedFields] = useState({}); // State to store updated employee fields
+  const [displayedEmployees, setDisplayedEmployees] = useState([]); 
+  const [employeeIdToUpdate, setEmployeeIdToUpdate] = useState(null); 
+  const [updatedFields, setUpdatedFields] = useState({}); 
 
   useEffect(() => {
     if (employeesData) {
-      // Sort employees by EmployeeID in ascending order
-      const sortedEmployees = [...employeesData].sort((a, b) => a.EmployeeID - b.EmployeeID);
+     const sortedEmployees = [...employeesData].sort((a, b) => a.EmployeeID - b.EmployeeID);
       setDisplayedEmployees(sortedEmployees);
     }
   }, [employeesData]);
@@ -36,7 +35,7 @@ function Employees() {
 
       console.log(`Successfully updated employee with ID: ${employeeIdToUpdate}`);
       refetch();
-      setIsModalOpen(false); // Close the modal after updating
+      setIsModalOpen(false); 
     } catch (error) {
       console.error(`Error updating employee with ID ${employeeIdToUpdate}:`, error);
     }
@@ -97,7 +96,7 @@ function Employees() {
             <h2 style={{ marginBottom: '20px' }}>Update Employee Information</h2>
             <div style={{ marginBottom: '20px' }}>
               <label htmlFor="checkIn">Check-in:</label>
-              <input type="text" id="checkInTime" name="CheckInTime" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
+              <input type="text" id="CheckInTime" name="CheckInTime" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
               <label htmlFor="CheckOut">Check-out:</label>
               <input type="text" id="CheckOutTime" name="CheckOutTime" onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px' }} />
               <label htmlFor="position">Position:</label>

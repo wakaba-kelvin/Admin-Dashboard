@@ -18,6 +18,7 @@
     "axios": "^1.6.7",
     "chart.js": "^4.4.2",
     "cloudinary": "^2.0.1",
+    "file-saver": "^2.0.5",
     "form": "^0.2.4",
     "formik": "^2.4.5",
     "hiphonic-client-react": "link:",
